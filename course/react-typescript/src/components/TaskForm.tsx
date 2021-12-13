@@ -1,5 +1,6 @@
 import React from 'react'
 import { Task } from '../'
+import { Input, Button } from '@chakra-ui/react'
 
 type Props = {
   tasks: Task[]
@@ -26,10 +27,23 @@ export const TaskForm: React.FC<Props> = ({ tasks, setTasks, newTaskLabel, setNe
   }
   return (
     <>
-      <input onChange={handleNewTaskLabel} type="text" value={newTaskLabel} placeholder="Enter the task" />
-      <button onClick={handleAddTask}>Add</button>
+      <Input
+        onChange={handleNewTaskLabel}
+        type="text"
+        value={newTaskLabel}
+        placeholder="Enter the task"
+        w="300px"
+        size="sm"
+        mr={2}
+        mb={2}
+      />
+      <Button onClick={handleAddTask} colorScheme="blue" size="sm">
+        Add
+      </Button>
       <br />
-      <button onClick={handleClearTasks}>Clear</button>
+      <Button onClick={handleClearTasks} colorScheme="red" size="sm">
+        Clear
+      </Button>
     </>
   )
 }
