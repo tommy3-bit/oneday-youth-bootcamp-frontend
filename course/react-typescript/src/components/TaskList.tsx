@@ -1,4 +1,5 @@
 import React from 'react'
+import { List, ListItem } from '@chakra-ui/react'
 import { Task } from '../'
 
 type Props = {
@@ -16,13 +17,13 @@ export const TaskList: React.FC<Props> = ({ tasks, setTasks }) => {
   }
 
   return (
-    <ul>
+    <List spacing={2}>
       {tasks.map((task, index) => (
-        <li key={`todo-${index}`}>
+        <ListItem key={`todo-${index}`}>
           {task.isDone ? <s>{task.label}</s> : task.label}
           <input onChange={(e) => handleCheckBox(e, index)} type="checkbox" checked={task.isDone} />
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   )
 }
