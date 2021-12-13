@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Box, Heading } from '@chakra-ui/react'
 import { request } from './server'
 import { TaskList } from './components/TaskList'
 import { TaskForm } from './components/TaskForm'
@@ -20,10 +20,12 @@ const App: React.VFC = () => {
 
   return (
     <ChakraProvider>
-      <div style={{ width: '700px', margin: '0 auto' }}>
+      <div>
         {/* ヘッダー */}
-        <h1>Tutorial Works</h1>
-        <h2>React Todo List</h2>
+        <Box w="100%" p={2} bg="azure">
+          <Heading as="h1">Tutorial Works</Heading>
+        </Box>
+        <Heading size="lg">React Todo List</Heading>
 
         {/* 一覧表示 */}
         <TaskList {...{ tasks, setTasks }} />
